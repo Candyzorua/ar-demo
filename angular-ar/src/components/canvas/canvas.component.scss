@@ -1,0 +1,25 @@
+body {
+    margin: 0;
+    overflow: hidden;
+}
+
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+#handTrackerCanvas {
+    z-index: 1;
+}
+
+#ARCanvas {
+    z-index: 4;
+}
+
+.flipButton {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 5;
+}
