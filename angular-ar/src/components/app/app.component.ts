@@ -12,6 +12,7 @@ declare var WEBARROCKSHAND: any;
 
 export class AppComponent {
   public shoeRightPath!: BehaviorSubject<string>;
+  public mode: string = 'barefoot-vto';
 
   constructor(
     private vtoService: VtoService,
@@ -25,6 +26,10 @@ export class AppComponent {
   }
 
   switchMode(path: string) {
+
+    // set mode so correct button is disabled in view
+    this.mode = path;
+
     WEBARROCKSHAND.destroy().then(() => {
     this.router.navigate(['/' + path]);
     });

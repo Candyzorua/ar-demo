@@ -18,6 +18,7 @@ export class CanvasComponent {
   @Input() threshold!: number; // detection sensitivity, between 0 and 1
   @Input() shoeRightPath!: BehaviorSubject<string>;
   @Input() isModelLightMapped!: boolean;
+  @Input() modeName!: string;
 
   // Pose settings
   @Input() scale!: number;
@@ -96,13 +97,12 @@ export class CanvasComponent {
     this.setFullScreen(handTrackerCanvas);
     this.setFullScreen(VTOCanvas);
 
-    HandTrackerThreeHelper.init({
+    const initParams: any = {
       poseLandmarksLabels: [
         'ankleBack', 'ankleOut', 'ankleIn', 'ankleFront',
         'heelBackOut', 'heelBackIn',
         'pinkyToeBaseTop', 'middleToeBaseTop', 'bigToeBaseTop'
       ],
-      poseFilter: PoseFlipFilter.instance({}),
       enableFlipObject: true,//true,
       cameraZoom: 1,
       freeZRot: false,
@@ -118,12 +118,23 @@ export class CanvasComponent {
           isRightHand: true,
           isFlipped: false
         }
-      },
-      landmarksStabilizerSpec: {
+      }
+    }
+
+    // set landmarks stabilizer if shoes on
+    if (this.modeName == 'shoes-on-vto') {
+      initParams.landmarksStabilizerSpec = {
         minCutOff: 0.001,
         beta: 3 // lower => more stabilized
       }
-    }).then((three: any) => {
+    }
+
+    // set posefilter if barefoot
+    if (this.modeName == 'barefoot-vto') {
+      initParams.poseFilter = PoseFlipFilter.instance({})
+    }
+
+    HandTrackerThreeHelper.init(initParams).then((three: any) => {
       handTrackerCanvas!.style.zIndex = '3'; // fix a weird bug on iOS15 / safari
       this.three = three;
       this.start(this.three);

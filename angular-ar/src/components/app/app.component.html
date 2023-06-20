@@ -17,8 +17,8 @@
                         (click)="swapShoe('../../assets/3d-models/converseShoe2.glb')">Converse</button>
                 </li>
             </ul>
-            <button (click)="switchMode('shoes-on-vto')" class="btn btn-success">Shoes On</button>
-            <button (click)="switchMode('barefoot-vto')" class="btn btn-danger">Shoes Off</button>
+            <button [disabled]="mode=='shoes-on-vto'" (click)="switchMode('shoes-on-vto')" class="btn btn-success">Shoes On</button>
+            <button [disabled]="mode=='barefoot-vto'" (click)="switchMode('barefoot-vto')" class="btn btn-danger">Shoes Off</button>
         </div>
     </div>
 </nav>
