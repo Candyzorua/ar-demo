@@ -3,7 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CanvasModule } from '../canvas/canvas.module';
+import { ShoesOnVtoModule } from '../shoes-on-vto/shoes-on-vto.module';
+import { BarefootVtoModule } from '../barefoot-vto/barefoot-vto.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -12,7 +14,9 @@ import { CanvasModule } from '../canvas/canvas.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CanvasModule
+    ShoesOnVtoModule,
+    BarefootVtoModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]

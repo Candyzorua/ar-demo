@@ -1,20 +1,28 @@
-<app-canvas
-[threshold]="0.6" 
-[debugCube]="false" 
-[isModelLightMapped]="true" 
-[shoeRightPath]="shoeRightPath"
-[scale]="1"
-[translation]="[0, -0.02, 0]"
-></app-canvas>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">LMS Shoe VTO Demo</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-<div class="swapShoeDiv">
-    <button 
-    type="btn" 
-    class="swapShoeButton btn btn-light" 
-    (click)="swapShoe('../../assets/3d-models/barefoot-models/vansShoe.glb')">VANS</button>
-    <button 
-    type="btn" 
-    class="swapShoeButton btn btn-light"
-    (click)="swapShoe('../../assets/3d-models/barefoot-models/converseShoe2.glb')">CONVERSE</button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <button type="btn" class="swapShoeButton btn btn-light"
+                        (click)="swapShoe('../../assets/3d-models/vansShoe.glb')">Vans</button>
+                </li>
+                <li class="nav-item">
+                    <button type="btn" class="swapShoeButton btn btn-light"
+                        (click)="swapShoe('../../assets/3d-models/converseShoe2.glb')">Converse</button>
+                </li>
+            </ul>
+            <button (click)="switchMode('shoes-on-vto')" class="btn btn-success">Shoes On</button>
+            <button (click)="switchMode('barefoot-vto')" class="btn btn-danger">Shoes Off</button>
+        </div>
+    </div>
+</nav>
+
+<div class="canvas">
+    <router-outlet></router-outlet>
 </div>
-

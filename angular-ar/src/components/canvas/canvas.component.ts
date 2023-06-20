@@ -26,6 +26,12 @@ export class CanvasComponent {
   // Debug flags
   @Input() debugCube!: boolean;
 
+  // Scan settings
+  @Input() scanSettings!: any;
+
+  // Neural network paths
+  @Input() NNsPaths!: string[];
+
   private _settings: any;
 
   private _three = {
@@ -52,7 +58,7 @@ export class CanvasComponent {
       threshold: this.threshold,
       shoeRightPath: null,
       isModelLightMapped: this.isModelLightMapped,
-      occluderPath: '../../assets/3d-models/barefoot-models/occluder.glb', // foot occluder
+      occluderPath: '../../assets/3d-models/occluder.glb', // foot occluder
 
       scale: this.scale,
       translation: this.translation,
@@ -90,7 +96,6 @@ export class CanvasComponent {
     this.setFullScreen(handTrackerCanvas);
     this.setFullScreen(VTOCanvas);
 
-
     HandTrackerThreeHelper.init({
       poseLandmarksLabels: [
         'ankleBack', 'ankleOut', 'ankleIn', 'ankleFront',
@@ -102,22 +107,21 @@ export class CanvasComponent {
       cameraZoom: 1,
       freeZRot: false,
       threshold: this._settings.threshold,
-      scanSettings: {
-        translationScalingFactors: [0.3, 0.3, 1],
-        multiDetectionSearchSlotsRate: 0.5,
-        multiDetectionEqualizeSearchSlotScale: true,
-        multiDetectionForceSearchOnOtherSide: true
-      },
+      scanSettings: this.scanSettings,
       VTOCanvas: VTOCanvas,
       handTrackerCanvas: handTrackerCanvas,
       debugDisplayLandmarks: false,
-      NNsPaths: ['../../neuralNets/NN_BAREFOOT_3.json'],
+      NNsPaths: this.NNsPaths,
       maxHandsDetected: 2,
       stabilizationSettings: {
         NNSwitchMask: {
           isRightHand: true,
           isFlipped: false
         }
+      },
+      landmarksStabilizerSpec: {
+        minCutOff: 0.001,
+        beta: 3 // lower => more stabilized
       }
     }).then((three: any) => {
       handTrackerCanvas!.style.zIndex = '3'; // fix a weird bug on iOS15 / safari
@@ -197,3 +201,4 @@ export class CanvasComponent {
     });
   }
 }
+

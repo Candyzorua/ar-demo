@@ -1,12 +1,11 @@
-.swapShoeDiv {
-    position: absolute;
-    left: 0;
-    right: 0;
-    margin: 0 auto;
-    text-align: center;
-}
-
-app-canvas {
+.canvas {
     position: absolute;
     z-index: -1;
 }
+
+.vto-navbar {
+    position: absolute;
+    z-index: 1;
+}
+
+
