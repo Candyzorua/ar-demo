@@ -1,4 +1,4 @@
-![IMG_2548](https://github.com/Candyzorua/ar-demo/assets/75513525/aec553e6-de6a-4cc7-9486-b467a576b4f0)# Virtual Try-On In Angular 16
+# Virtual Try-On In Angular 16
 
 ## Overview
 - An augmented reality web app where you can choose different accessories to try on different parts of your body.
