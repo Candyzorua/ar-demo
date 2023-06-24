@@ -2,7 +2,7 @@
 
 ## Overview
 - An augmented reality web app where you can choose different accessories to try on different parts of your body.
-- Uses Angular 16 and [WebAR.rocks.hand]([https://link-url-here.org](https://github.com/WebAR-rocks/WebAR.rocks.hand)https://github.com/WebAR-rocks/WebAR.rocks.hand), a JavaScript library for hand tracking.
+- Uses Angular 16 and [WebAR.rocks.hand](https://github.com/WebAR-rocks/WebAR.rocks.hand), a JavaScript library for hand tracking.
 - [Netlify deploy link](https://comfy-mermaid-e2563f.netlify.app/barefoot-vto) 
 
 ## Changelog
