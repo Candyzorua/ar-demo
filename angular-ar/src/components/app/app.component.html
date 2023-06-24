@@ -7,18 +7,41 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <button type="btn" class="swapShoeButton btn btn-light"
-                        (click)="swapShoe('../../assets/3d-models/vansShoe.glb')">Vans</button>
+                    <div class="dropdown">
+                        <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Accessory
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <li><a class="dropdown-item"
+                                    (click)="swapShoe('../../assets/3d-models/vansShoe.glb')">Vans</a></li>
+                            <li><a class="dropdown-item"
+                                    (click)="swapShoe('../../assets/3d-models/converseShoe2.glb')">Converse</a></li>
+                        </ul>
+                    </div>
                 </li>
                 <li class="nav-item">
-                    <button type="btn" class="swapShoeButton btn btn-light"
-                        (click)="swapShoe('../../assets/3d-models/converseShoe2.glb')">Converse</button>
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Mode
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <li><a class="dropdown-item" *ngIf="mode !=='shoes-on-vto'"
+                                    (click)="switchMode('shoes-on-vto')">Shoes
+                                    On</a></li>
+                            <li><a class="dropdown-item" *ngIf="mode !=='barefoot-vto'"
+                                    (click)="switchMode('barefoot-vto')">Shoes
+                                    Off</a></li>
+                        </ul>
+                    </div>
                 </li>
             </ul>
-            <button [disabled]="mode=='shoes-on-vto'" (click)="switchMode('shoes-on-vto')" class="btn btn-success">Shoes On</button>
-            <button [disabled]="mode=='barefoot-vto'" (click)="switchMode('barefoot-vto')" class="btn btn-danger">Shoes Off</button>
+            <span class="navbar-text">
+                Current Mode: {{ mode }}
+            </span>
         </div>
     </div>
 </nav>
