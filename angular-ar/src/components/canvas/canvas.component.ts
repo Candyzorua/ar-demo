@@ -17,7 +17,6 @@ export class CanvasComponent {
   // 3D Model specification and settings
   @Input() threshold!: number; // detection sensitivity, between 0 and 1
   @Input() shoeRightPath!: BehaviorSubject<string>;
-  @Input() isModelLightMapped!: boolean;
   @Input() modeName!: string;
 
   // Pose settings
@@ -58,14 +57,15 @@ export class CanvasComponent {
     this._settings = {
       threshold: this.threshold,
       shoeRightPath: null,
-      isModelLightMapped: this.isModelLightMapped,
       occluderPath: '../../assets/3d-models/occluder.glb', // foot occluder
 
       scale: this.scale,
       translation: this.translation,
 
       debugCube: this.debugCube,
-      debugDisplayLandmarks: true
+      debugDisplayLandmarks: true,
+
+      isModelLightMapped: true
     }
 
     this.shoeRightPath.subscribe((s) => {
