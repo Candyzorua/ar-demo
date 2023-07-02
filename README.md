@@ -1,4 +1,4 @@
-# Virtual Try-On In Angular 16
+# Virtual Try-On (Shoes) In Angular 16
 
 ## Overview
 - An augmented reality web app where you can virtually try on different shoes.
