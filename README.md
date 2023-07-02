@@ -1,11 +1,15 @@
 # Virtual Try-On In Angular 16
 
 ## Overview
-- An augmented reality web app where you can choose shoes to try on virtually.
-- Uses Angular 16 and [WebAR.rocks.hand](https://github.com/WebAR-rocks/WebAR.rocks.hand), a JavaScript library for hand tracking.
-- [Netlify deploy link](https://comfy-mermaid-e2563f.netlify.app/barefoot-vto) 
+- An augmented reality web app where you can virtually try on different shoes.
+- Uses Angular 16 and [WebAR.rocks.hand](https://github.com/WebAR-rocks/WebAR.rocks.hand), a JavaScript library for virtual try-on.
+- [Netlify deploy link](https://lmswebarshoe.netlify.app) 
 
 ## Changelog
+
+### 2/7/2023
+- Updated to include Asics shoes.
+
 ### 24/6/2023
 - UI updated to use a navbar and dropdowns.
 - Users able to virtually try on shoes.
