@@ -3,6 +3,7 @@
 ## Overview
 - An augmented reality web app where you can virtually try on different shoes.
 - Uses Angular 16 and [WebAR.rocks.hand](https://github.com/WebAR-rocks/WebAR.rocks.hand), a JavaScript library for virtual try-on.
+- [Similar repo for trying on glasses and makeup](https://github.com/Candyzorua/ar-demo-face)
 - [Netlify deploy link](https://lmswebarshoe.netlify.app) 
 
 ## Changelog
